@@ -1,0 +1,64 @@
+version: '3.1'
+services:
+
+   master_db:
+    image: mysql:5.7
+    container_name: 'master_db'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user12345'
+      MYSQL_DATABASE: db
+    ports:
+      - 3308:3306
+    volumes:
+      - my-datavolume:/var/lib/mysq      
+#      - ./conf.d:/etc/mysql/conf.d/
+#      - mysqlconf:/etc/mysql/conf.d      
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+   slave_1:
+    image: mysql:5.7
+    container_name: 'slave1'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user12345'
+      MYSQL_DATABASE: db
+    volumes:
+      - ./mysql_1/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3309:3306
+   slave_2:
+    image: mysql:5.7
+    container_name: 'slave2'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user12345'
+      MYSQL_DATABASE: db
+    volumes:
+      - ./mysql_2/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3310:3306
+
+   slave15:
+    image: mysql:5.7
+    container_name: 'slave_15'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user12345'
+      MYSQL_DATABASE: db
+    ports:
+      - 3311:3306
+    volumes:
+      - ./mysql-slave-15m/my-datavolume:/var/lib/mysq      
+      - ./mysql-slave-15m/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql-slave-15m/sql:/docker-entrypoint-initdb.d
+volumes:
+  my-datavolume:
+  mysqlconf:

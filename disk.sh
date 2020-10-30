@@ -1,0 +1,6 @@
+docker exec -it master_db  mysql -uroot -ptoor -e 'use db;select * from DiskUsage  order by  id desc    limit 1;'
+docker exec -it slave1  mysql -uroot -ptoor -e 'use db;select * from DiskUsage  order by  id desc    limit 1;'
+docker exec -it slave2  mysql -uroot -ptoor -e 'use db;select * from DiskUsage  order by  id desc    limit 1;'
+docker exec -it slave_15  mysql -uroot -ptoor -e 'use db;select * from DiskUsage  order by  id desc    limit 1;'
+docker exec -it slave1  mysql -uroot -p -e 'show slave status\G'
+docker exec -it slave2  mysql -uroot -p -e 'show slave status\G'

@@ -1,0 +1,16 @@
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.9G     0  3.9G   0% /dev
+tmpfs           798M  2.2M  796M   1% /run
+/dev/vda1        49G   40G  8.9G  82% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/vda15      105M  3.6M  101M   4% /boot/efi
+tmpfs           798M     0  798M   0% /run/user/0
+overlay          49G   40G  8.9G  82% /var/lib/docker/overlay2/27f8fe26b908a308c061651dfabcc811435a1f20d961632597757a3cee5e2f9a/merged
+overlay          49G   40G  8.9G  82% /var/lib/docker/overlay2/f245503d115e4a4f0d28076c7bf4126298daf640e0c895debcbc54e7202ad5de/merged
+shm              64M     0   64M   0% /var/lib/docker/containers/c425b24c16e9dadf124035d0e592a7d9f844aa8ecb82497566030dd686a169d5/mounts/shm
+shm              64M     0   64M   0% /var/lib/docker/containers/7a18fc625347e2bc824a4dba541f2f373cca82a4dad8ed909cbbff47b026cbd1/mounts/shm
+overlay          49G   40G  8.9G  82% /var/lib/docker/overlay2/3f5e2f6cbc2dc4a2e0ce2058438bf39544e8154f9a5d930d85e312b79b315953/merged
+shm              64M     0   64M   0% /var/lib/docker/containers/0b36d44c07a91718cb6f2da5cff11d229ccd3dd69f064a659c7d6762f2b78415/mounts/shm
+tmpfs           798M     0  798M   0% /run/user/1000

@@ -1,0 +1,5 @@
+server-id = 1
+binlog-format = mixed
+log-bin = mysql-bin
+sync_binlog = 1
+
