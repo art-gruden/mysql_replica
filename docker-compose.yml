@@ -17,6 +17,10 @@ services:
 #      - ./conf.d:/etc/mysql/conf.d/
 #      - mysqlconf:/etc/mysql/conf.d      
       - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      sqlnetr:
+        ipv4_address: 172.18.0.4
+
    slave_1:
     image: mysql:5.7
     container_name: 'slave1'
@@ -30,6 +34,10 @@ services:
       - ./mysql_1/my.cnf:/etc/mysql/my.cnf
     ports:
       - 3309:3306
+    networks:
+      sqlnetr:
+        ipv4_address: 172.18.0.5
+
    slave_2:
     image: mysql:5.7
     container_name: 'slave2'
@@ -43,6 +51,9 @@ services:
       - ./mysql_2/my.cnf:/etc/mysql/my.cnf
     ports:
       - 3310:3306
+    networks:
+      sqlnetr:
+        ipv4_address: 172.18.0.6
 
    slave15:
     image: mysql:5.7
@@ -56,9 +67,22 @@ services:
     ports:
       - 3311:3306
     volumes:
-      - ./mysql-slave-15m/my-datavolume:/var/lib/mysq      
-      - ./mysql-slave-15m/mysql/my.cnf:/etc/mysql/my.cnf
-      - ./mysql-slave-15m/sql:/docker-entrypoint-initdb.d
+      - ./mysql-slave/my-datavolume:/var/lib/mysq      
+      - ./mysql-slave/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql-slave/sql:/docker-entrypoint-initdb.d
+    networks:
+      sqlnetr:
+        ipv4_address: 172.18.0.7
+
 volumes:
   my-datavolume:
   mysqlconf:
+
+networks:
+  sqlnetr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.18.0.0/16
+#       - gateway: 172.18.0.1
+
