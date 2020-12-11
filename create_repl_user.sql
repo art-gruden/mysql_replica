@@ -1,0 +1,3 @@
+GRANT REPLICATION SLAVE ON *.* TO rpl_user@'%' IDENTIFIED BY 'YlgSH9bLQy';
+
+
